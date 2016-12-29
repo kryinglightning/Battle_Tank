@@ -19,11 +19,22 @@ public:
 	
 	virtual void Tick(float DeltaSeconds) override;
 
+private:
 	ATank* GetControlledTank() const;
 
-private:
 	void AimAtCrosshair(); //move the barrel to the crosshair to shoot in that direction
 	bool GetSightRayHitLocation(FVector& HitLocation) const;
+	bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
+	bool GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const;
+
+	UPROPERTY(EditAnywhere)
+	float CrosshairXLocation = 0.5f;
+
+	UPROPERTY(EditAnywhere)
+	float CrosshairYLocation = 0.33333f;
+
+	UPROPERTY(EditAnywhere)
+	float MaxRange = 100000.0f;
 
 	
 	
