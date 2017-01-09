@@ -4,8 +4,10 @@
 #include "TankBarrel.h"
 
 void UTankBarrel::Elevate(float RelativeSpeed) {
-	//work out the difference between current barrel rotation and aim direction
-	//move the barrel the right amount this frame
+	RelativeSpeed = FMath::Clamp<float>(RelativeSpeed, -1, 1);
+	auto ElevationChange = RelativeSpeed * MaxDegreesPerSec * GetWorld()->DeltaTimeSeconds;
+	auto RawNewElevation = RelativeRotation.Pitch + ElevationChange;
+	SetRelativeRotation(FRotator(FMath::Clamp(RawNewElevation, MinElevation, MaxElevation), 0, 0));
 }
 
 
