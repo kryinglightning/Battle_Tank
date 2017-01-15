@@ -7,6 +7,7 @@
 
 class UTankBarrel;
 class UTankTurret;
+class AProjectile;
 class UTankAimComponent;
 
 UCLASS()
@@ -39,7 +40,17 @@ private:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 
-	UPROPERTY(EditAnywhere, Category = Firing)
-	float LaunchSpeed = 3000.0f; //TODO find default
+	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	TSubclassOf<AProjectile> ProjectileBP;
+
+	UPROPERTY(EditDefaultsOnly, Category = Firing)
+	float LaunchSpeed = 3000.0f; 
+
+	UPROPERTY(EditDefaultsOnly, Category = Firing)
+	float ReloadTimeSec = 3.0f;
+
+	UTankBarrel* Barrel = nullptr;
+
+	double LastFireTime = 0; 
 
 };
