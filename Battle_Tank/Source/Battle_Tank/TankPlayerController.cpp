@@ -11,12 +11,6 @@ void ATankPlayerController::BeginPlay() {
 	Super::BeginPlay();
 	UE_LOG(LogTemp, Warning, TEXT("PlayerController Begin Play"));
 	auto ControlledTank = GetControlledTank();
-	if (ControlledTank) {
-		UE_LOG(LogTemp, Warning, TEXT("The %s is the pawn"), *(ControlledTank->GetName()));
-	}
-	else {
-		UE_LOG(LogTemp, Error, TEXT("The pawn is missing"));
-	}
 }
 
 void ATankPlayerController::Tick(float DeltaTime) {
