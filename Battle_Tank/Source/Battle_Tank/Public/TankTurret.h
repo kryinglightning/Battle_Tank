@@ -18,7 +18,7 @@ public:
 
 private:
 	UPROPERTY(EditDefaultsOnly)
-	float MaxRotationSpeed = 20;
+	float MaxRotationSpeed = 40;
 
 
 	
