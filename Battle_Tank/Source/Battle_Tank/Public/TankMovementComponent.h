@@ -3,6 +3,8 @@
 #pragma once
 
 #include "GameFramework/NavMovementComponent.h"
+#include "Battle_Tank.h"
+#include "TankTrack.h"
 #include "TankMovementComponent.generated.h"
 
 class UTankTrack;
