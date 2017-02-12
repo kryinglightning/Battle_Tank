@@ -23,6 +23,7 @@ void ATankPlayerController::Tick(float DeltaTime) {
 
 
 void ATankPlayerController::AimAtCrosshair() {
+	if (!GetPawn()) { return;  }
 	auto AimComponent = GetPawn()->FindComponentByClass<UTankAimComponent>();
 	if (!ensure(AimComponent)) { return; }
 
